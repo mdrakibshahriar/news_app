@@ -31,7 +31,7 @@ class NewsRepository {
   }
 
   Future<CategoriesNewsModel> fetchCategoriesChannelApi (String newsCategories) async {
-    String url = "https://newsapi.org/v2/everything?q=$newsCategories&apiKey=2f8323f4d3bd472a9973ecee6eadc44d";
+    String url = "https://newsapi.org/v2/everything?q=$newsCategories&apiKey=${dotenv.env["NEWSAPI"]}";
     try{
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
